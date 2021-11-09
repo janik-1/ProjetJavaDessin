@@ -22,7 +22,7 @@ public class Ellipse implements Manipulable{
 	@Override
 	public double calcAire() {
 		double aire= Math.PI*this.grandaxe*this.petitaxe;
-		return aire;
+		return aire; 
 	}
 
 	@Override
