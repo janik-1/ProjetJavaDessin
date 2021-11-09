@@ -8,4 +8,5 @@ public interface Manipulable {
 	public void rotation(int centx, int centy, int degre);
 	public void symetriecentrale(int centx, int centy);
 	public void symetrieaxiale();	
+	public String toString();
 }

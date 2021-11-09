@@ -10,10 +10,14 @@ public class Appli {
 		Ellipse el = new Ellipse(1,2,5,3);
 		Ligne li = new Ligne(7, 2, 6);
 		Polygone pol = new Polygone(5,9,4,3,5);
-		System.out.println(ce);
-		System.out.println(el);
-		System.out.println(li);
-		System.out.println(pol);
+		Image im = new Image();
+		im.addForme(pol);
+		im.addForme(li);
+		System.out.println(im);
+//		System.out.println(ce);
+//		System.out.println(el);
+//		System.out.println(li);
+//		System.out.println(pol);
 	}
 
 }
