@@ -1,15 +1,13 @@
 package Formes;
 
 public class Polygone implements Manipulable {
-	private int posx;
-	private int posy;
+	private Position centre;
 	private int nbsommet;
 	private int longueur;
 	private int lar;
 	
 	public Polygone (int posx, int posy, int nbso, int longu, int lar) {
-		this.posx =  posx;
-		this.posy = posy;
+
 		this.nbsommet = nbso;
 		this.longueur = longu;
 		this.lar = lar;

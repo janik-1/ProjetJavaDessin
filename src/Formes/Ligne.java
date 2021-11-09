@@ -1,14 +1,14 @@
 package Formes;
 
 public class Ligne implements Manipulable{
+	private Position debut;
+	private Position fin;
 	private float longueur;
-	private int posx;
-	private int posy;
 	
-	public Ligne(int posx, int posy, float longueur) {
+	public Ligne(int debx, int deby, int finx, int finy, float longueur) {
 		this.longueur = longueur;
-		this.posx = posx;
-		this.posy = posy;
+		this.debut = new Position(debx, deby);
+		this.fin = new Position(finx, finy);
 	}
 	
 	public double calcAire() {
