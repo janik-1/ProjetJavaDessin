@@ -56,9 +56,9 @@ public class Ligne extends Forme implements Manipulable{
 	}
 
 	public String toString() {
-		return "Je suis une ligne, ayant pour coordonnées du point de départ : " + this.debut + 
-				"coordonnées du point de fin :" + this.fin + 
-				"et de longueur :" + this.longueur
+		return "Je suis une ligne, Départ : " + this.debut + 
+				" coordonnées du point de fin :" + this.fin + 
+				" et de longueur :" + this.longueur
 				
 				; 
 	}

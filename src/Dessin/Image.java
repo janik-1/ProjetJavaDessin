@@ -2,14 +2,15 @@ package Dessin;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 import Formes.Manipulable;
 
 public class Image {
-	private HashSet<Manipulable> Formes;
+	private LinkedHashSet<Manipulable> Formes;
 	
 	public Image() {
-		this.Formes = new HashSet<Manipulable>();
+		this.Formes = new LinkedHashSet<Manipulable>();
 	}
 	
 	public void addForme(Manipulable forme) {

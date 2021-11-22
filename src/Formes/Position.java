@@ -75,4 +75,9 @@ public class Position {
 		}
 	}
 	
+	public String toString() {
+		String s = new String();
+		s+="("+ this.posx + "," + this.posy + ")";
+		return s;
+	}
 }

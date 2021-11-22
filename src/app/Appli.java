@@ -7,12 +7,13 @@ public class Appli {
 
 	public static void main(String[] args) {
 		Cercle ce = new Cercle(5,1,2);
-		Ellipse el = new Ellipse(1,2,5,3);
-		Ligne li = new Ligne(7, 2, 6);
+		//Ellipse el = new Ellipse(1,2,5,3);
+		Ligne li = new Ligne(7, 2, 6,5,6);
 		Polygone pol = new Polygone(5,9,4,3,5);
 		Image im = new Image();
 		im.addForme(pol);
 		im.addForme(li);
+		im.addForme(ce);
 		System.out.println(im);
 //		System.out.println(ce);
 //		System.out.println(el);

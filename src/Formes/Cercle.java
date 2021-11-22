@@ -4,16 +4,16 @@ public class Cercle extends Forme implements Manipulable {
 	private double rayon;
 	private Position centre;
 
-	public Cercle (int rayon, Position centre) {
-		this.centre = centre;
+	public Cercle (int rayon, int posx, int posy) {
+		this.centre = new Position(posx, posy);
 		this.rayon = rayon;
 	}
 	
 	public String toString() {
 		String s= "Je suis un cercle";
-		s+= "Mon centre est situé (" + centre.getPosx() + "," + centre.getPosy() + ")";
-		s+= "Mon périmètre est " +  this.calcAire();
-		s+= "Mon aire est " + this.calcPerimetre();
+		s+= " Mon centre est situé (" + centre.getPosx() + "," + centre.getPosy() + ")";
+		s+= " Mon périmètre est " +  this.calcAire();
+		s+= " Mon aire est " + this.calcPerimetre();
 		return s;
 	}
 
