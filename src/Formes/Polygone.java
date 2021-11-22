@@ -1,6 +1,6 @@
 package Formes;
 
-public class Polygone implements Manipulable {
+public class Polygone extends Forme implements Manipulable {
 	private Position centre;
 	private int nbsommet;
 	private int longueur;

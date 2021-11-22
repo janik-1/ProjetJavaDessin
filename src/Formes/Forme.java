@@ -18,5 +18,9 @@ public abstract class Forme implements Manipulable{
 		this.perimetre = perimetre;
 	}
 	
+	public boolean plusGrand(Forme forme) {
+		return (this.perimetre > forme.perimetre);
+	}
+	
 	
 }

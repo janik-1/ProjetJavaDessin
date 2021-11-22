@@ -6,7 +6,8 @@ import java.util.LinkedHashSet;
 import Formes.*;
 
 public class Dessin {
-	public LinkedHashSet<Image> Formes;
+	private LinkedHashSet<Image> Formes;
+	private int aire;
 	
 	
 }

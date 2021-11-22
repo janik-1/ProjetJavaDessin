@@ -8,6 +8,8 @@ import Formes.Manipulable;
 
 public class Image {
 	private LinkedHashSet<Manipulable> Formes;
+	private int aire;
+	private int perimetre;
 	
 	public Image() {
 		this.Formes = new LinkedHashSet<Manipulable>();
@@ -15,6 +17,10 @@ public class Image {
 	
 	public void addForme(Manipulable forme) {
 		this.Formes.add(forme);
+	}
+	
+	public boolean compareTo(Image im) {
+		return(this.aire>im.aire);
 	}
 	
 	public String toString() {
