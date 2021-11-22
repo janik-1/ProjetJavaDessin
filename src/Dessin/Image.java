@@ -23,6 +23,10 @@ public class Image {
 		return(this.aire>im.aire);
 	}
 	
+	public void triForme() {
+		
+	}
+	
 	public String toString() {
 		String s = "";
 		for (Manipulable manipulable : Formes) {

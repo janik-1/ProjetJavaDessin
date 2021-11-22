@@ -9,5 +9,8 @@ public class Dessin {
 	private LinkedHashSet<Image> Formes;
 	private int aire;
 	
+	public void triImage() {
+		
+	}
 	
 }
