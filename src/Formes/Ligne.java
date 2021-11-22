@@ -1,9 +1,9 @@
 package Formes;
 
-public class Ligne implements Manipulable{
+public class Ligne extends Forme implements Manipulable{
 	private Position debut;
 	private Position fin;
-	private float longueur;
+	private double longueur;
 	
 	public Ligne(int debx, int deby, int finx, int finy, float longueur) {
 		this.longueur = longueur;
@@ -18,32 +18,49 @@ public class Ligne implements Manipulable{
 		return this.longueur;
 	}
 	
-	@Override
-	public void homothétie(float rapport) {
+	public void homothétie(double rapport, Position centreH) { 
+		this.debut.homothétie(rapport, centreH);
+		this.fin.homothétie(rapport, centreH);
 		this.longueur = this.longueur*rapport;
 	}
 	
 	@Override
-	public void translation(int axex, int axey) {
-		this.posx = this.posx+axex;
-		this.posy = this.posy+axey;
+	public void translation(double vecteurx, double vecteury) {
+		this.debut.translation(vecteurx, vecteury);
+		this.fin.translation(vecteurx, vecteury);
 	}
-	@Override
-	public void rotation(int centx, int centy, int degre) {
-		
+	@SuppressWarnings("unused")
+	public void rotation(Position centreR, double degre) {
+		this.debut.rotation(centreR, degre);
+		this.fin.rotation(centreR, degre);
 	}
+	
 	@Override
-	public void symetriecentrale(int centx, int centy) {
-		
+	public void symetriecentrale(Position centreSym) {
+		this.rotation(centreSym, 180);
 	}
+	
+	
 	@Override
-	public void symetrieaxiale() {
-		// TODO Auto-generated method stub
-		
+	public void symetrieaxiale(Ligne axe) {
+		this.debut.symetrieaxiale(axe);
+		this.fin.symetrieaxiale(axe);
+	}
+	
+	public Position getDebut() {
+		return this.debut;
+	}
+	
+	public Position getFin() {
+		return this.fin;
 	}
 
 	public String toString() {
-		return "Je suis une ligne";
+		return "Je suis une ligne, ayant pour coordonnées du point de départ : " + this.debut + 
+				"coordonnées du point de fin :" + this.fin + 
+				"et de longueur :" + this.longueur
+				
+				; 
 	}
 
 

@@ -3,14 +3,12 @@ package Formes;
 import java.lang.*;
 
 public class Ellipse implements Manipulable{
-	private int posx;
-	private int posy;
+	private Position centre;
 	private int petitaxe;
 	private int grandaxe;
 
-	public Ellipse(int posx, int posy, int grandaxe, int petitaxe) {
-		this.posx = posx;
-		this.posy = posy;
+	public Ellipse(Position centre, int grandaxe, int petitaxe) {
+		this.centre = centre;
 		this.grandaxe = grandaxe;
 		this.petitaxe = petitaxe;
 	}
@@ -32,34 +30,34 @@ public class Ellipse implements Manipulable{
 	}
 
 	@Override
-	public void homothétie(float rapport) {
+	public void rotation(Position centreR, double degre) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void translation(int axex, int axey) {
+	public void symetriecentrale(Position centreSym) {
+		this.rotation(centreSym, 180);
+	}
+
+	@Override
+	public void symetrieaxiale(Ligne axe) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void rotation(int centx, int centy, int degre) {
+	public void homothétie(double rapport, Position centreH) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void symetriecentrale(int centx, int centy) {
+	public void translation(double vecteurx, double vecteury) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void symetrieaxiale() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 

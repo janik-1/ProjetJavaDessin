@@ -1,18 +1,19 @@
 package Formes;
 
-public class Cercle implements Manipulable {
-	private int rayon;
-	private int posx;
-	private int posy;
+public class Cercle extends Forme implements Manipulable {
+	private double rayon;
+	private Position centre;
 
-	public Cercle (int rayon, int posx, int posy) {
-		this.posx = posx;
-		this.posy = posy;
+	public Cercle (int rayon, Position centre) {
+		this.centre = centre;
 		this.rayon = rayon;
 	}
 	
 	public String toString() {
 		String s= "Je suis un cercle";
+		s+= "Mon centre est situé (" + centre.getPosx() + "," + centre.getPosy() + ")";
+		s+= "Mon périmètre est " +  this.calcAire();
+		s+= "Mon aire est " + this.calcPerimetre();
 		return s;
 	}
 
@@ -22,51 +23,37 @@ public class Cercle implements Manipulable {
 		return aire;
 	}
 
-
-
 	@Override
 	public double calcPerimetre() {
 		return 2*Math.PI*this.rayon;
 	}
 
-
-
 	@Override
-	public void homothétie(float rapport) {
-		// TODO Auto-generated method stub
-		
+	public void homothétie(double rapport, Position centreH) {
+		this.centre.homothétie(rapport, centreH);
+		this.rayon=Math.abs(this.rayon*rapport);
 	}
 
 
 
 	@Override
-	public void translation(int axex, int axey) {
-		// TODO Auto-generated method stub
-		
+	public void translation(double vecteurx, double vecteury) {
+		this.centre.translation(vecteurx, vecteury);
 	}
 
-
-
 	@Override
-	public void rotation(int centx, int centy, int degre) {
-		// TODO Auto-generated method stub
-		
+	public void rotation(Position centreR, double degre) {
+		this.centre.rotation(centreR, degre);
 	}
 
-
-
 	@Override
-	public void symetriecentrale(int centx, int centy) {
-		// TODO Auto-generated method stub
-		
+	public void symetriecentrale(Position centreSym) {
+		this.rotation(centreSym, 180);
 	}
 
-
-
 	@Override
-	public void symetrieaxiale() {
-		// TODO Auto-generated method stub
-		
+	public void symetrieaxiale(Ligne axe) {
+		this.centre.symetrieaxiale(axe);
 	}
 
 }

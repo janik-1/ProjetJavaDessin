@@ -22,34 +22,37 @@ public class Polygone implements Manipulable {
 		return this.longueur*2+this.lar*2;
 	}
 	
-	@Override
-	public void homothétie(float rapport) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void translation(int axex, int axey) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void rotation(int centx, int centy, int degre) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void symetriecentrale(int centx, int centy) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void symetrieaxiale() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public String toString() {
 		String s= "Je suis un Polygone";
 		return s;
+	}
+
+	@Override
+	public void homothétie(double rapport, Position centreH) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void translation(double vecteurx, double vecteury) {
+		
+	}
+
+	@Override
+	public void rotation(Position centreR, double degre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void symetriecentrale(Position centreSym) {
+		this.rotation(centreSym, 180);
+	}
+	
+	
+	@Override
+	public void symetrieaxiale(Ligne axe) {
+		// TODO Auto-generated method stub
+		
 	}
 }
