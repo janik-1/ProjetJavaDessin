@@ -11,7 +11,7 @@ public class Appli {
 		Cercle ce2 = new Cercle(7,1,2);
 		//Ellipse el = new Ellipse(1,2,5,3);
 		Ligne li = new Ligne(7,2,6,5);
-		Polygone pol = new Polygone(5,9,4,3,5);
+		//Polygone pol = new Polygone(5,9,4,3,5);
 		Image im = new Image();
 		//im.addForme(pol);
 		im.addForme(ce);
