@@ -23,7 +23,10 @@ public class Fresque {
 	
 	public String toString() {
 		String s= "";
+		int cpt = 1;
 		for (Dessin dessin : Dessins) {
+			s+= "Dessin" + cpt;
+			cpt++;
 			s+= dessin.toString() + System.lineSeparator();
 		}
 		return s;

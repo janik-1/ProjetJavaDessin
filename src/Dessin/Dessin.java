@@ -27,9 +27,11 @@ public class Dessin {
 		this.Images = TrieFormes;
 	}
 	
-	public void copieDessin(Dessin des) {
+	public void copieDessin(Dessin des) throws CloneNotSupportedException {
 		for (Image img : des.getImages()) {
 			Image copie = new Image();
+			copie.copieImage(img);
+			this.addImage(copie);
 		}
 	}
 	
@@ -38,7 +40,10 @@ public class Dessin {
 	}
 	public String toString() {
 		String s= "";
+		int cpt = 1;
 		for (Image image : Images) {
+			s+= "Image " + cpt;
+			cpt++;
 			s+= image.toString() + System.lineSeparator();
 		}
 		return s;

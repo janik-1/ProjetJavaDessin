@@ -1,6 +1,6 @@
 package Formes;
 
-public class Ligne extends Forme implements Manipulable{
+public class Ligne extends Forme{
 	private Position debut;
 	private Position fin;
 	private double longueur;

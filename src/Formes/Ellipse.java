@@ -2,7 +2,7 @@ package Formes;
 
 import java.lang.*;
 
-public class Ellipse extends Forme implements Manipulable{
+public class Ellipse extends Forme{
 	private Position centre;
 	private Ligne petitaxe;
 	private Ligne grandaxe;

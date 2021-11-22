@@ -2,7 +2,7 @@ package Formes;
 
 import java.text.DecimalFormat;
 
-public class Cercle extends Forme implements Manipulable {
+public class Cercle extends Forme{
 	private double rayon;
 	private Position centre;
 	private String transformation;
