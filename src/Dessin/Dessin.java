@@ -42,7 +42,7 @@ public class Dessin {
 		String s= "";
 		int cpt = 1;
 		for (Image image : Images) {
-			s+= "Image " + cpt;
+			s+= "Image " + cpt + " : " + System.lineSeparator();
 			cpt++;
 			s+= image.toString() + System.lineSeparator();
 		}

@@ -37,6 +37,12 @@ public class Position {
 		return -1;
 	}
 	
+	public double CalculDistance(Position Point) {	
+		double distance = Math.sqrt(Math.pow(Point.getPosx() -  this.getPosx(), 2))+
+				Math.pow((Point.getPosy()-this.getPosy()),2);	
+		return distance;
+	}
+	
 	public void homothétie(double rapport, Position centreH) {
 		this.setPosx(this.getPosx()*rapport*this.cmpX(centreH));
 		this.setPosy(this.getPosy()*rapport*this.cmpY(centreH));

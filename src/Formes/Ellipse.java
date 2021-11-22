@@ -17,13 +17,11 @@ public class Ellipse extends Forme{
 		return "Je suis une ellipse";
 	}
 	
-	public double CalculDistance(Ligne l) {
-		
+	public double CalculDistance(Ligne l) {	
 		double distance = Math.sqrt(Math.pow(l.getFin().getPosx() -  l.getDebut().getPosx(), 2))+
 				Math.pow((l.getFin().getPosy()-l.getDebut().getPosy()),2);
 	
-		return distance;
-		
+		return distance;	
 	}
 	
 

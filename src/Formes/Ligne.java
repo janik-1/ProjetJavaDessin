@@ -5,10 +5,10 @@ public class Ligne extends Forme{
 	private Position fin;
 	private double longueur;
 	
-	public Ligne(int debx, int deby, int finx, int finy, double longueur) {
-		this.longueur = longueur;
+	public Ligne(int debx, int deby, int finx, int finy) {
 		this.debut = new Position(debx, deby);
 		this.fin = new Position(finx, finy);
+		this.longueur = debut.CalculDistance(fin);
 		this.calcAire();
 		this.calcPerimetre();
 	}
