@@ -5,16 +5,20 @@ public class Ligne extends Forme implements Manipulable{
 	private Position fin;
 	private double longueur;
 	
-	public Ligne(int debx, int deby, int finx, int finy, float longueur) {
+	public Ligne(int debx, int deby, int finx, int finy, double longueur) {
 		this.longueur = longueur;
 		this.debut = new Position(debx, deby);
 		this.fin = new Position(finx, finy);
+		this.calcAire();
+		this.calcPerimetre();
 	}
 	
 	public double calcAire() {
+		this.setAire(0);
 		return 0;
 	}
 	public double calcPerimetre() {
+		this.setPerimetre(longueur);
 		return this.longueur;
 	}
 	
@@ -56,9 +60,9 @@ public class Ligne extends Forme implements Manipulable{
 	}
 
 	public String toString() {
-		return "Je suis une ligne, Départ : " + this.debut + 
-				" coordonnées du point de fin :" + this.fin + 
-				" et de longueur :" + this.longueur
+		return "Je suis une ligne, coordonnées Départ : " + this.debut + 
+				" Fin : " + this.fin + 
+				" et de longueur : " + this.longueur
 				
 				; 
 	}

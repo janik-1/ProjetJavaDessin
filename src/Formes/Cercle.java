@@ -1,5 +1,7 @@
 package Formes;
 
+import java.text.DecimalFormat;
+
 public class Cercle extends Forme implements Manipulable {
 	private double rayon;
 	private Position centre;
@@ -8,25 +10,32 @@ public class Cercle extends Forme implements Manipulable {
 	public Cercle (int rayon, int posx, int posy) {
 		this.centre = new Position(posx, posy);
 		this.rayon = rayon;
+		this.calcAire();
+		this.calcPerimetre();
 	}
 	
 	public String toString() {
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		String s= "Je suis un cercle";
 		s+= " Mon centre est situé (" + centre.getPosx() + "," + centre.getPosy() + ")";
-		s+= " Mon périmètre est " +  this.calcAire();
-		s+= " Mon aire est " + this.calcPerimetre();
-		s+= this.transformation;
+		s+= " Mon périmètre est " +  numberFormat.format(this.calcAire());
+		s+= " Mon aire est " + numberFormat.format(this.calcPerimetre());
+		if (this.transformation!=null)
+			s+= this.transformation;
 		return s;
 	}
 
 	@Override
 	public double calcAire() {
 		double aire = Math.PI*this.rayon*this.rayon;
+		this.setAire(aire);
 		return aire;
 	}
 
 	@Override
 	public double calcPerimetre() {
+		double perimetre = 2*Math.PI*this.rayon;
+		this.setPerimetre(perimetre);
 		return 2*Math.PI*this.rayon;
 	}
 
