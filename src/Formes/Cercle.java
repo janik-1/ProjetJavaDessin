@@ -5,23 +5,27 @@ import java.text.DecimalFormat;
 public class Cercle extends Forme{
 	private double rayon;
 	private Position centre;
-	private String transformation;
-
+	
+	/*
+	 * 
+	 */
 	public Cercle (int rayon, int posx, int posy) {
 		this.centre = new Position(posx, posy);
 		this.rayon = rayon;
 		this.calcAire();
 		this.calcPerimetre();
+		this.transformation= " ";
 	}
 	
 	public String toString() {
 		DecimalFormat numberFormat = new DecimalFormat("#.00");
-		String s= "Je suis un cercle";
-		s+= " Mon centre est situé (" + centre.getPosx() + "," + centre.getPosy() + ")";
-		s+= " Mon périmètre est " +  numberFormat.format(this.calcAire());
-		s+= " Mon aire est " + numberFormat.format(this.calcPerimetre());
-		if (this.transformation!=null)
+		String s= "Je suis un cercle {";
+		s+= " Centre : (" + centre.getPosx() + "," + centre.getPosy() + "),";
+		s+= " Périmètre :" +  numberFormat.format(this.calcAire()) + ",";
+		s+= " Aire :" + numberFormat.format(this.calcPerimetre());
+		if (!this.transformation.equals(" "))
 			s+= this.transformation;
+		s+= " }";
 		return s;
 	}
 
@@ -43,7 +47,7 @@ public class Cercle extends Forme{
 	public void homothétie(double rapport, Position centreH) {
 		this.centre.homothétie(rapport, centreH);
 		this.rayon=Math.abs(this.rayon*rapport);
-		this.transformation+= "Je suis une homothétie de rapport " + rapport + ". ";
+		this.homothetietext(rapport, centreH);
 	}
 
 
@@ -51,26 +55,25 @@ public class Cercle extends Forme{
 	@Override
 	public void translation(double vecteurx, double vecteury) {
 		this.centre.translation(vecteurx, vecteury);
-		this.transformation+= "Je suis la translation de vecteur " + vecteurx + "," + vecteury + ". ";
+		this.translationtext(vecteurx, vecteury);
 	}
 
 	@Override
 	public void rotation(Position centreR, double degre) {
 		this.centre.rotation(centreR, degre);
-		this.transformation+= "Je suis la rotation de degre " + degre + ". ";
+		this.rotationtext(centreR, degre);
 	}
 
 	@Override
 	public void symetriecentrale(Position centreSym) {
 		this.rotation(centreSym, 180);
-		this.transformation+= "Je suis la symetrie centrale de centre " + centreSym + ". ";
+		this.symetriecentraletext(centreSym);
 	}
 
 	@Override
 	public void symetrieaxiale(Ligne axe) {
 		this.centre.symetrieaxiale(axe);
-		this.transformation+= "Je suis la symetrie axiale de l'axe" + ". ";
-
+		this.symetrieaxialetext(axe);
 	}
 
 }

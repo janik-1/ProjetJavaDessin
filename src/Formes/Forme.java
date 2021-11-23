@@ -3,6 +3,7 @@ package Formes;
 public abstract class Forme implements Manipulable, Comparable<Forme>, Cloneable{
 	private double aire;
 	private double perimetre;
+	protected String transformation;
 	
 	
 	public double getAire() {
@@ -37,4 +38,24 @@ public abstract class Forme implements Manipulable, Comparable<Forme>, Cloneable
 		return (Forme)super.clone();
 	}
 	
+	public void homothetietext(double rapport, Position centreH) {
+		this.transformation+= "Homothétie de rapport " + rapport + ". ";
+	}
+	
+	public void translationtext(double vecteurx, double vecteury) {
+		this.transformation+= "Translation de vecteur " + vecteurx + "," + vecteury + ". ";
+	}
+	
+	public void rotationtext(Position centreR, double degre) {
+		this.transformation+= "Rotation de degre " + degre + ". ";
+	}
+	
+	public void symetriecentraletext(Position centreSym) {
+		this.transformation+= "Symetrie centrale de centre " + centreSym + ". ";
+	}
+	
+	public void symetrieaxialetext(Ligne axe) {
+		this.transformation+= "Symetrie axiale de l'axe" + ". ";
+	}
+
 }

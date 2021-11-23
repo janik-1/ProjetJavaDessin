@@ -11,6 +11,7 @@ public class Ligne extends Forme{
 		this.longueur = debut.CalculDistance(fin);
 		this.calcAire();
 		this.calcPerimetre();
+		this.transformation= " ";
 	}
 	
 	public double calcAire() {
@@ -26,22 +27,27 @@ public class Ligne extends Forme{
 		this.debut.homothétie(rapport, centreH);
 		this.fin.homothétie(rapport, centreH);
 		this.longueur = this.longueur*rapport;
+		this.homothetietext(rapport, centreH);
 	}
 	
 	@Override
 	public void translation(double vecteurx, double vecteury) {
 		this.debut.translation(vecteurx, vecteury);
 		this.fin.translation(vecteurx, vecteury);
+		this.translationtext(vecteurx, vecteury);
 	}
-	@SuppressWarnings("unused")
+
 	public void rotation(Position centreR, double degre) {
 		this.debut.rotation(centreR, degre);
 		this.fin.rotation(centreR, degre);
+		this.rotationtext(centreR, degre);
 	}
 	
 	@Override
 	public void symetriecentrale(Position centreSym) {
 		this.rotation(centreSym, 180);
+		this.symetriecentraletext(centreSym);
+
 	}
 	
 	
@@ -49,6 +55,7 @@ public class Ligne extends Forme{
 	public void symetrieaxiale(Ligne axe) {
 		this.debut.symetrieaxiale(axe);
 		this.fin.symetrieaxiale(axe);
+		this.symetrieaxialetext(axe);
 	}
 	
 	public Position getDebut() {
@@ -60,11 +67,15 @@ public class Ligne extends Forme{
 	}
 
 	public String toString() {
-		return "Je suis une ligne, coordonnées Départ : " + this.debut + 
-				" Fin : " + this.fin + 
-				" et de longueur : " + this.longueur
-				
-				; 
+		String s = "";
+		s+= "Je suis une ligne { Départ : " + this.debut + 
+				", Fin : " + this.fin + 
+				", Longueur : " + this.longueur;
+		if (!this.transformation.equals(" ")) {
+			s+= this.transformation;			
+		}
+		s+= " }";
+		return s;
 	}
 
 

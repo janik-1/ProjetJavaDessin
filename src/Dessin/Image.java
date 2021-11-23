@@ -16,6 +16,7 @@ public class Image implements Comparable<Image>, Cloneable{
 	
 	public void addForme(Forme forme) {
 		this.Formes.add(forme);
+		this.calcAire();
 	}
 	
 	public int compareTo(Image im) {
@@ -40,6 +41,11 @@ public class Image implements Comparable<Image>, Cloneable{
 		}
 	}
 	
+	public void calcAire() {
+		for (Forme forme : Formes) {
+			this.aire+=forme.getAire();
+		}
+	}
 	
 	public LinkedHashSet<Forme> getFormes() {
 		return Formes;

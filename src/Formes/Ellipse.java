@@ -11,10 +11,18 @@ public class Ellipse extends Forme{
 		this.centre = centre;
 		this.grandaxe = grandaxe;
 		this.petitaxe = petitaxe;
+		this.transformation= " ";
+
 	}
 
 	public String toString() {
-		return "Je suis une ellipse";
+		String s="";
+		s+= "Je suis une ellipse { Centre : " + this.centre;
+		if (!this.transformation.equals(" ")) {
+			s+= "," + this.transformation;			
+		}
+		s+= " }";
+		return s;
 	}
 	
 	public double CalculDistance(Ligne l) {	
@@ -42,6 +50,7 @@ public class Ellipse extends Forme{
 		this.petitaxe.rotation(centreR, degre);
 		this.grandaxe.rotation(centreR, degre);
 		this.centre.rotation(centreR, degre);
+		this.rotationtext(centreR, degre);
 	}
 
 	@Override
@@ -49,6 +58,7 @@ public class Ellipse extends Forme{
 		this.centre.rotation(centreSym, 180);
 		this.petitaxe.rotation(centreSym, 180);
 		this.grandaxe.rotation(centreSym, 180);
+		this.symetriecentraletext(centreSym);
 	}
 
 	@Override
@@ -56,14 +66,16 @@ public class Ellipse extends Forme{
 		this.petitaxe.symetrieaxiale(axe);
 		this.grandaxe.symetrieaxiale(axe);
 		this.centre.symetrieaxiale(axe);
+		this.symetrieaxialetext(axe);
 	}
 
 	@Override
-	public void homothétie(double rapport, Position centre) { 
-		this.petitaxe.homothétie(rapport, centre);
-		this.grandaxe.homothétie(rapport, centre);
-		this.centre.homothétie(rapport, centre);
-		}
+	public void homothétie(double rapport, Position centreH) { 
+		this.petitaxe.homothétie(rapport, centreH);
+		this.grandaxe.homothétie(rapport, centreH);
+		this.centre.homothétie(rapport, centreH);
+		this.homothetietext(rapport, centreH);
+	}
 	
 
 	@Override
@@ -71,9 +83,8 @@ public class Ellipse extends Forme{
 		this.grandaxe.translation(vecteurx, vecteury);
 		this.petitaxe.translation(vecteurx, vecteury);
 		this.centre.translation(vecteurx, vecteury);
+		this.translationtext(vecteurx, vecteury);
 	}
 
-	
-	
 
 }

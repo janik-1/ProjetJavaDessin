@@ -8,11 +8,10 @@ public class Polygone extends Forme {
 	private int nbsommet;
 	
 	public Polygone (ArrayList <Ligne> p) {
-		
 		this.ligne = new ArrayList<Ligne>();
 		this.ligne = p ;
 		this.nbsommet = this.ligne.size();
-		
+		this.transformation= " ";
 	}
 	
 	@Override
@@ -54,7 +53,7 @@ public double CalculDistance(Ligne l) {
 			l.getDebut().homothétie(rapport, centreH);
 			l.getFin().homothétie(rapport, centreH);
 		}
-	
+		this.homothetietext(rapport, centreH);
 		
 	}
 
@@ -64,6 +63,7 @@ public double CalculDistance(Ligne l) {
 			l.getDebut().translation(vecteurx, vecteury);
 			l.getFin().translation(vecteurx, vecteury);
 		}
+		this.translationtext(vecteurx, vecteury);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public double CalculDistance(Ligne l) {
 			l.getDebut().rotation(centreR, degre);
 			l.getFin().rotation(centreR, degre);
 		}
-		
+		this.rotationtext(centreR, degre);
 	}
 
 	@Override
@@ -81,6 +81,7 @@ public double CalculDistance(Ligne l) {
 			l.getDebut().rotation(centreSym,180);
 			l.getFin().rotation(centreSym, 180);
 		}
+		this.symetriecentraletext(centreSym);
 	}
 	
 	
@@ -90,12 +91,16 @@ public double CalculDistance(Ligne l) {
 			l.getDebut().symetrieaxiale(axe);
 			l.getFin().symetrieaxiale(axe);
 		}
-		
+		this.symetrieaxialetext(axe);
 	}
 	
 	public String toString() {
-		String s= "Je suis un Polygone ayant pour côtés :" +	this.ligne
-				+ "et avec un nombre de sommet de :" + this.nbsommet;
+		String s= "Je suis un Polygone {"
+				+ "Nombre sommet : " + this.nbsommet;
+		if (!this.transformation.equals(" ")) {
+			s+= ", " + this.transformation;			
+		}
+		s+= " }";
 		return s;
 	}
 
