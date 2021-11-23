@@ -65,6 +65,10 @@ public class Ligne extends Forme{
 	public Position getFin() {
 		return this.fin;
 	}
+	
+	public double getLongueur() {
+		return this.longueur;
+	}
 
 	public String toString() {
 		String s = "";

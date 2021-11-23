@@ -36,6 +36,15 @@ public class Appli {
 		des.triImage();
 		System.out.println(des);
 		System.out.println(des2);
+		
+		Ligne ali = new Ligne(1,1,2,1);
+		Position centreH = new Position(2,0);
+		System.out.println(ali);
+		ali.rotation(centreH, 360);
+		System.out.println(ali);
+		ali.homothétie(2, centreH);
+		System.out.println(ali);
+		
 //		System.out.println(im);
 //		im.triForme();
 //		System.out.println(im);

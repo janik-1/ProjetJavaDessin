@@ -25,18 +25,6 @@ public class Position {
 		this.posy = posy;
 	}
 	
-	public int cmpX(Position centre) {
-		if (this.posx < centre.getPosx())
-			return 1;
-		return -1;
-	}
-	
-	public int cmpY(Position centre) {
-		if (this.posy < centre.getPosy())
-			return 1;
-		return -1;
-	}
-	
 	public double CalculDistance(Position Point) {	
 		double distance = Math.sqrt(Math.pow(Point.getPosx() -  this.getPosx(), 2))+
 				Math.pow((Point.getPosy()-this.getPosy()),2);	
@@ -44,8 +32,8 @@ public class Position {
 	}
 	
 	public void homothétie(double rapport, Position centreH) {
-		this.setPosx(this.getPosx()*rapport*this.cmpX(centreH));
-		this.setPosy(this.getPosy()*rapport*this.cmpY(centreH));
+		this.setPosx(this.getPosx()*rapport);
+		this.setPosy(this.getPosy()*rapport);
 	}
 	
 	public void translation(double vecteurx, double vecteury) {
@@ -54,10 +42,15 @@ public class Position {
 	}
 	
 	public void rotation(Position centreR, double degre) {
-		double distance = Math.sqrt(Math.pow(centreR.getPosx()-this.getPosx(), 2))+
-				Math.pow((centreR.getPosy()-this.getPosy()),2);
-		this.setPosx(distance*Math.cos(degre)+centreR.getPosx());
-		this.setPosy(distance*Math.sin(degre)+centreR.getPosy());
+	    double angle = degre * Math.PI/180;
+		double xM = this.posx - centreR.getPosx();
+	    double yM = this.posy - centreR.getPosy();
+	    this.setPosx(Math.round(xM * Math.cos(angle)+yM*Math.sin(angle) + centreR.getPosx()));
+	    this.setPosy(Math.round((-xM)*Math.sin(angle)+yM*Math.cos(angle)+centreR.getPosy()));
+//		double distance = Math.sqrt(Math.pow(centreR.getPosx()-this.getPosx(), 2))+
+//				Math.pow((centreR.getPosy()-this.getPosy()),2);
+//		this.setPosx(distance*Math.cos(degre)+centreR.getPosx());
+//		this.setPosy(distance*Math.sin(degre)+centreR.getPosy());
 	}
 	
 	public void symetriecentrale(Position centreSym) {
