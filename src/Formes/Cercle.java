@@ -6,8 +6,11 @@ public class Cercle extends Forme{
 	private double rayon;
 	private Position centre;
 	
-	/*
-	 * 
+	/**
+	 * Permet d'initialiser un cercle
+	 * @param rayon
+	 * @param posx
+	 * @param posy
 	 */
 	public Cercle (int rayon, int posx, int posy) {
 		this.centre = new Position(posx, posy);
@@ -17,6 +20,10 @@ public class Cercle extends Forme{
 		this.transformation= " ";
 	}
 	
+	/**
+	 * Permet d'afficher un cercle, ces caractéristiques et transformation (s'il y en a eu)
+	 * @return s
+	 */
 	public String toString() {
 		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		String s= "Je suis un cercle {";
@@ -29,21 +36,31 @@ public class Cercle extends Forme{
 		return s;
 	}
 
-	@Override
+	/**
+	 * Permet de calcul l'aire d'un cercle
+	 * @return aire
+	 */
 	public double calcAire() {
 		double aire = Math.PI*this.rayon*this.rayon;
 		this.setAire(aire);
 		return aire;
 	}
 
-	@Override
+	/**
+	 * Permet de calculer le périmètre d'un cercle
+	 * @return perimetre
+	 */
 	public double calcPerimetre() {
 		double perimetre = 2*Math.PI*this.rayon;
 		this.setPerimetre(perimetre);
-		return 2*Math.PI*this.rayon;
+		return perimetre;
 	}
 
-	@Override
+	/**
+	 * Permet de faire l'homothétie d'un cercle par rapport à un centre
+	 * @param rapport
+	 * @param Position centreH
+	 */
 	public void homothétie(double rapport, Position centreH) {
 		this.centre.homothétie(rapport, centreH);
 		this.rayon=Math.abs(this.rayon*rapport);
@@ -51,25 +68,43 @@ public class Cercle extends Forme{
 	}
 
 
-
+	/**
+	 * Permet de faire la translation d'un cercle
+	 * @param vecteurx
+	 * @param vecteury
+	 */
 	@Override
 	public void translation(double vecteurx, double vecteury) {
 		this.centre.translation(vecteurx, vecteury);
 		this.translationtext(vecteurx, vecteury);
 	}
 
+	
+	/**
+	 * Permet de faire la rotation d'un cercle par rapport à un centre
+	 * @param Position centreR
+	 * @param degre
+	 */
 	@Override
 	public void rotation(Position centreR, double degre) {
 		this.centre.rotation(centreR, degre);
 		this.rotationtext(centreR, degre);
 	}
-
+	
+	/**
+	 * Permet de faire la symétrie centrale d'un cercle
+	 * @param Position centreSym
+	 */
 	@Override
 	public void symetriecentrale(Position centreSym) {
 		this.rotation(centreSym, 180);
 		this.symetriecentraletext(centreSym);
 	}
-
+	
+	/**
+	 * Permet de faire une symétrie axiale d'un cercle
+	 * @param Ligne axe
+	 */
 	@Override
 	public void symetrieaxiale(Ligne axe) {
 		this.centre.symetrieaxiale(axe);

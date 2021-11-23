@@ -32,8 +32,10 @@ public class Position {
 	}
 	
 	public void homothétie(double rapport, Position centreH) {
-		this.setPosx(this.getPosx()*rapport);
-		this.setPosy(this.getPosy()*rapport);
+		this.setPosx(((this.getPosx()-centreH.getPosx())*rapport) + centreH.getPosx());
+		this.setPosy(rapport*(this.getPosy()-centreH.getPosy()) + centreH.getPosy());
+//		this.setPosx(this.getPosx()*rapport);
+//		this.setPosy(this.getPosy()*rapport);
 	}
 	
 	public void translation(double vecteurx, double vecteury) {
@@ -58,6 +60,7 @@ public class Position {
 	}
 	
 	public void symetrieaxiale(Ligne axe) {
+		posy = this.getPosy();
 		if (axe.getDebut().getPosx() == axe.getFin().getPosx()) {
 			this.setPosx(2*axe.getDebut().getPosx()-this.getPosx());
 			// La position de Y reste inchangé lorsque on fait une symétrie axiale avec une droite parallèle à
@@ -65,13 +68,33 @@ public class Position {
 			this.setPosy(this.getPosy()); 
 		} else {
 		double a = (axe.getFin().getPosy() - axe.getDebut().getPosy())/(axe.getFin().getPosx() - axe.getDebut().getPosx());
+
 		double b = axe.getDebut().getPosy() - a*axe.getDebut().getPosx();
 		
+		double posix =  (((1-Math.pow(a,2))*this.getPosx()) + (2*a*this.getPosy()) - (2*a*b))/(1+Math.pow(a, 2));
+		double posiy = ((2*a*this.getPosx()) - ((1-Math.pow(a, 2))*this.getPosy())+(2*b))/(1+Math.pow(a, 2));
 		// équation de type ax+b la droite
+
+		this.setPosx(posix);
 		
-		this.setPosx((1-Math.pow(a,2)*this.getPosx() + 2*a*this.getPosy()-2*a*b)/(1+Math.pow(a, 2)));
-		this.setPosy((2*a*this.getPosx() - (1-Math.pow(a, 2))*this.getPosy()+2*b)/(1+Math.pow(a, 2)));
+		this.setPosy(posiy);
+		
 		}
+		
+//		if (axe.getDebut().getPosx() == axe.getFin().getPosx()) {
+//			this.setPosx(2*axe.getDebut().getPosx()-this.getPosx());
+//			// La position de Y reste inchangé lorsque on fait une symétrie axiale avec une droite parallèle à
+//			// l'axe des ordonnés.
+//			this.setPosy(this.getPosy()); 
+//		} else {
+//		double a = (axe.getFin().getPosy() - axe.getDebut().getPosy())/(axe.getFin().getPosx() - axe.getDebut().getPosx());
+//		double b = axe.getDebut().getPosy() - a*axe.getDebut().getPosx();
+//		
+//		// équation de type ax+b la droite
+//		
+//		this.setPosx((1-Math.pow(a,2)*this.getPosx() + 2*a*this.getPosy()-2*a*b)/(1+Math.pow(a, 2)));
+//		this.setPosy((2*a*this.getPosx() - (1-Math.pow(a, 2))*this.getPosy()+2*b)/(1+Math.pow(a, 2)));
+//		}
 	}
 	
 	public String toString() {

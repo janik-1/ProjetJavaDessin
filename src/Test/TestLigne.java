@@ -38,11 +38,11 @@ public class TestLigne extends TestCase{
 	
 	public void testHomothetie() {
 		Ligne li = new Ligne(1,1,2,1);
-		Position centreH = new Position(2,0);
+		Position centreH = new Position(1,0);
 		li.homothétie(2, centreH);
-		assertEquals(2.0, li.getDebut().getPosx());
+		assertEquals(1.0, li.getDebut().getPosx());
 		assertEquals(2.0, li.getDebut().getPosy());
-		assertEquals(4.0, li.getFin().getPosx());
+		assertEquals(3.0, li.getFin().getPosx());
 		assertEquals(2.0, li.getFin().getPosy());
 	}
 	
