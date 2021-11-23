@@ -45,14 +45,6 @@ public class Appli {
 		ali.homothétie(2, centreH);
 		System.out.println(ali);
 		
-//		System.out.println(im);
-//		im.triForme();
-//		System.out.println(im);
-//		System.out.println(im2);
-//		System.out.println(ce);
-//		System.out.println(el);
-//		System.out.println(li);
-//		System.out.println(pol);
 	}
 
 }

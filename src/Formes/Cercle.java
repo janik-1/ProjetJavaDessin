@@ -2,6 +2,12 @@ package Formes;
 
 import java.text.DecimalFormat;
 
+/**
+ * Une classe qui représente un Cercle
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
+
 public class Cercle extends Forme{
 	private double rayon;
 	private Position centre;
@@ -21,7 +27,7 @@ public class Cercle extends Forme{
 	}
 	
 	/**
-	 * Permet d'afficher un cercle, ces caractéristiques et transformation (s'il y en a eu)
+	 * Retourne un String contenant les caractéristiques du cercle et une transformation (s'il y en a eu)
 	 * @return s
 	 */
 	public String toString() {
@@ -59,7 +65,7 @@ public class Cercle extends Forme{
 	/**
 	 * Permet de faire l'homothétie d'un cercle par rapport à un centre
 	 * @param rapport
-	 * @param Position centreH
+	 * @param centreH
 	 */
 	public void homothétie(double rapport, Position centreH) {
 		this.centre.homothétie(rapport, centreH);
@@ -82,7 +88,7 @@ public class Cercle extends Forme{
 	
 	/**
 	 * Permet de faire la rotation d'un cercle par rapport à un centre
-	 * @param Position centreR
+	 * @param centreR
 	 * @param degre
 	 */
 	@Override
@@ -93,7 +99,7 @@ public class Cercle extends Forme{
 	
 	/**
 	 * Permet de faire la symétrie centrale d'un cercle
-	 * @param Position centreSym
+	 * @param centreSym
 	 */
 	@Override
 	public void symetriecentrale(Position centreSym) {
@@ -103,7 +109,7 @@ public class Cercle extends Forme{
 	
 	/**
 	 * Permet de faire une symétrie axiale d'un cercle
-	 * @param Ligne axe
+	 * @param axe
 	 */
 	@Override
 	public void symetrieaxiale(Ligne axe) {

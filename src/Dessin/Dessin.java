@@ -1,5 +1,10 @@
 package Dessin;
 
+/**
+ * Une classe qui représente un dessin.
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 

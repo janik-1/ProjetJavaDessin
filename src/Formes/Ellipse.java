@@ -2,6 +2,12 @@ package Formes;
 
 import java.lang.*;
 
+/**
+ * Une classe qui représente une ellipse
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
+
 public class Ellipse extends Forme{
 	private Position centre;
 	private Ligne petitaxe;
@@ -21,7 +27,7 @@ public class Ellipse extends Forme{
 
 	}
 	/**
-	 * Permet d'afficher une ellipse, ces propriétés et transformation (s'il y a eu)
+	 * Retourne un String contenant les propriétés d'une ellipse et transformation (s'il y en a eu)
 	 * @return s 
 	 */
 	public String toString() {

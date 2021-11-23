@@ -1,14 +1,20 @@
 package Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import Dessin.*;
+import junit.framework.TestCase;
 
 import org.junit.jupiter.api.Test;
 
-class TestDessin {
+class TestDessin extends TestCase{
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void testnotnull() {
+		Dessin dessin = new Dessin();
+		assertNotNull(dessin);
 	}
 
+	@Test
+	public void testAffichage() {
+		
+	}
 }

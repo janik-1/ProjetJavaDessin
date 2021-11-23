@@ -5,6 +5,12 @@ import java.util.TreeSet;
 
 import Formes.*;
 
+/**
+ * Une classe qui représente une image.
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
+
 public class Image implements Comparable<Image>, Cloneable{
 	private LinkedHashSet<Forme> Formes;
 	private int aire;

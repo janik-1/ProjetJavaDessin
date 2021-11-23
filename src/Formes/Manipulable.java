@@ -1,5 +1,11 @@
 package Formes;
 
+/**
+ * Cette interface contient toutes les fonctions indispensable à une classe représentant une forme (Cercle, Ellipse, ...)
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
+
 public interface Manipulable {
 	public double calcAire();
 	public double calcPerimetre();

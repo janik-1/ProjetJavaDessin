@@ -2,11 +2,20 @@ package Formes;
 
 import java.util.ArrayList;
 
+/**
+ * Une classe qui représente un Polygone.
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
 public class Polygone extends Forme {
 	
 	private ArrayList <Ligne> ligne;
 	private int nbsommet;
 	
+	/**
+	 * Initialise un Polygone.
+	 * @param p
+	 */
 	public Polygone (ArrayList <Ligne> p) {
 		this.ligne = new ArrayList<Ligne>();
 		this.ligne = p ;
@@ -15,6 +24,10 @@ public class Polygone extends Forme {
 	}
 	
 	@Override
+	/**
+	 * Permet de calculer l'aire d'un polygone.
+	 * @return aire
+	 */
 	public double calcAire() {	
 		double aire = 0;
 		
@@ -23,17 +36,24 @@ public class Polygone extends Forme {
 		return aire;			 
 	}
 	
-	
-public double CalculDistance(Ligne l) {		
-	
-		double distance = Math.sqrt(Math.pow(l.getFin().getPosx() -  l.getDebut().getPosx(), 2))+
-				Math.pow((l.getFin().getPosy()-l.getDebut().getPosy()),2);
-	
-		return distance;		
+	/**
+	 * Permet de calculer la longueur d'une ligne.
+	 * @param l
+	 * @return
+	 */
+	public double CalculDistance(Ligne l) {		
 		
-	}
+			double distance = Math.sqrt(Math.pow(l.getFin().getPosx() -  l.getDebut().getPosx(), 2))+
+					Math.pow((l.getFin().getPosy()-l.getDebut().getPosy()),2);
+		
+			return distance;		
+			
+		}
 	
-
+	/**
+	 * Permet de calculer le périmètre d'un polygone.
+	 * @return perim
+	 */
 	@Override
 	public double calcPerimetre() {
 		double perim = 0;
@@ -45,7 +65,11 @@ public double CalculDistance(Ligne l) {
 		return perim;
 	}
 	
-	
+	/**
+	 * Permet de faire l'homothétie d'un polygone par rapport à un centre
+	 * @param rapport
+	 * @param centreH
+	 */
 	@Override
 	public void homothétie(double rapport, Position centreH) {
 		
@@ -56,7 +80,11 @@ public double CalculDistance(Ligne l) {
 		this.homothetietext(rapport, centreH);
 		
 	}
-
+	/**
+	 * Permet de faire la translation d'un polygone.
+	 * @param vecteurx
+	 * @param vecteury
+	 */
 	@Override
 	public void translation(double vecteurx, double vecteury) {
 		for (Ligne l : ligne) {
@@ -66,6 +94,11 @@ public double CalculDistance(Ligne l) {
 		this.translationtext(vecteurx, vecteury);
 	}
 
+	/**
+	 * Permet de faire la rotation d'un polygone par rapport à un centre
+	 * @param degre
+	 * @param centreR
+	 */
 	@Override
 	public void rotation(Position centreR, double degre) {
 		for (Ligne l : ligne) {
@@ -75,6 +108,10 @@ public double CalculDistance(Ligne l) {
 		this.rotationtext(centreR, degre);
 	}
 
+	/**
+	 * Permet de faire la symétrie centrale d'un polygone par rapport à un centre
+	 * @param centreH
+	 */
 	@Override
 	public void symetriecentrale(Position centreSym) {
 		for (Ligne l : ligne) {
@@ -84,7 +121,10 @@ public double CalculDistance(Ligne l) {
 		this.symetriecentraletext(centreSym);
 	}
 	
-	
+	/**
+	 * Permet de faire la symétrie axiale d'un polygone par rapport à une ligne.
+	 * @param axe
+	 */
 	@Override
 	public void symetrieaxiale(Ligne axe) {
 		for (Ligne l : ligne) {
@@ -94,6 +134,10 @@ public double CalculDistance(Ligne l) {
 		this.symetrieaxialetext(axe);
 	}
 	
+	/**
+	 * Retourne un String contenant les caractéristique du polygone et transformation (s'il y en a eu)
+	 * @return s
+	 */
 	public String toString() {
 		String s= "Je suis un Polygone {"
 				+ "Nombre sommet : " + this.nbsommet;

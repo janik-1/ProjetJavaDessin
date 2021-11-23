@@ -2,6 +2,11 @@ package Dessin;
 
 import java.util.ArrayList;
 
+/**
+ * Une classe qui représente une fresque.
+ * @author Fardeen POOREEA et Janik JIANG
+ *
+ */
 public class Fresque {
 	private ArrayList<Dessin> Dessins;
 	
