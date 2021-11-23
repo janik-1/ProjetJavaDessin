@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @author Fardeen POOREEA et Janik JIANG
  *
  */
+
 public class Fresque {
 	private ArrayList<Dessin> Dessins;
 	
@@ -42,14 +43,23 @@ public class Fresque {
 	}
 	
 	/**
+	 * Ajoute un dessin à la fresque
+	 * @param dessins
+	 */
+	public void addDessin(Dessin dessin) {
+		this.Dessins.add(dessin);
+	}
+	
+	/**
 	 * Permet d'afficher une fresque
 	 * @return s
 	 */
 	public String toString() {
 		String s= "";
 		int cpt = 1;
+		s+="Contenu de la fresque : " + System.lineSeparator();
 		for (Dessin dessin : Dessins) {
-			s+= "Dessin" + cpt + " : " + System.lineSeparator();
+			s+= "Dessin " + cpt + " : " + System.lineSeparator();
 			cpt++;
 			s+= dessin.toString() + System.lineSeparator();
 		}

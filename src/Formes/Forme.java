@@ -99,7 +99,7 @@ public abstract class Forme implements Manipulable, Comparable<Forme>, Cloneable
 	 * @param axe
 	 */
 	public void symetrieaxialetext(Ligne axe) {
-		this.transformation+= "Symetrie axiale de l'axe" + ". ";
+		this.transformation+= "Symetrie axiale de l'axe " + axe.getDebut() + axe.getFin() + ". ";
 	}
 
 }

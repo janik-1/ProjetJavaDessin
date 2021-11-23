@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
  */
 
 public class Cercle extends Forme{
-	private double rayon;
+	private double rayon; 
 	private Position centre;
 	
 	/**
@@ -21,8 +21,8 @@ public class Cercle extends Forme{
 	public Cercle (int rayon, int posx, int posy) {
 		this.centre = new Position(posx, posy);
 		this.rayon = rayon;
-		this.calcAire();
-		this.calcPerimetre();
+		this.setAire(this.calcAire());
+		this.setPerimetre(calcPerimetre());
 		this.transformation= " ";
 	}
 	
@@ -34,8 +34,8 @@ public class Cercle extends Forme{
 		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		String s= "Je suis un cercle {";
 		s+= " Centre : (" + centre.getPosx() + "," + centre.getPosy() + "),";
-		s+= " Périmètre :" +  numberFormat.format(this.calcAire()) + ",";
-		s+= " Aire :" + numberFormat.format(this.calcPerimetre());
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
 		if (!this.transformation.equals(" "))
 			s+= this.transformation;
 		s+= " }";
@@ -48,7 +48,6 @@ public class Cercle extends Forme{
 	 */
 	public double calcAire() {
 		double aire = Math.PI*this.rayon*this.rayon;
-		this.setAire(aire);
 		return aire;
 	}
 
@@ -58,7 +57,6 @@ public class Cercle extends Forme{
 	 */
 	public double calcPerimetre() {
 		double perimetre = 2*Math.PI*this.rayon;
-		this.setPerimetre(perimetre);
 		return perimetre;
 	}
 

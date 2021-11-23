@@ -1,5 +1,6 @@
 package Formes;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,8 @@ public class Polygone extends Forme {
 		this.ligne = p ;
 		this.nbsommet = this.ligne.size();
 		this.transformation= " ";
+		this.setAire(this.calcAire());
+		this.setPerimetre(calcPerimetre());
 	}
 	
 	@Override
@@ -139,8 +142,11 @@ public class Polygone extends Forme {
 	 * @return s
 	 */
 	public String toString() {
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		String s= "Je suis un Polygone {"
 				+ "Nombre sommet : " + this.nbsommet;
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
 		if (!this.transformation.equals(" ")) {
 			s+= ", " + this.transformation;			
 		}

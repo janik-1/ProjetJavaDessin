@@ -1,6 +1,7 @@
 package Formes;
 
 import java.lang.*;
+import java.text.DecimalFormat;
 
 /**
  * Une classe qui représente une ellipse
@@ -24,7 +25,8 @@ public class Ellipse extends Forme{
 		this.grandaxe = grandaxe;
 		this.petitaxe = petitaxe;
 		this.transformation= " ";
-
+		this.setAire(this.calcAire());
+		this.setPerimetre(calcPerimetre());
 	}
 	/**
 	 * Retourne un String contenant les propriétés d'une ellipse et transformation (s'il y en a eu)
@@ -32,7 +34,10 @@ public class Ellipse extends Forme{
 	 */
 	public String toString() {
 		String s="";
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		s+= "Je suis une ellipse { Centre : " + this.centre;
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
 		if (!this.transformation.equals(" ")) {
 			s+= "," + this.transformation;			
 		}
@@ -49,7 +54,7 @@ public class Ellipse extends Forme{
 		double distance = Math.sqrt(Math.pow(l.getFin().getPosx() -  l.getDebut().getPosx(), 2))+
 				Math.pow((l.getFin().getPosy()-l.getDebut().getPosy()),2);
 	
-		return distance;	
+		return distance;
 	}
 	
 	

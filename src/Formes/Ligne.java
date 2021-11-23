@@ -1,5 +1,7 @@
 package Formes;
 
+import java.text.DecimalFormat;
+
 /**
  * Une classe qui représente une Ligne.
  * @author Fardeen POOREEA et Janik JIANG
@@ -21,8 +23,8 @@ public class Ligne extends Forme{
 		this.debut = new Position(debx, deby);
 		this.fin = new Position(finx, finy);
 		this.longueur = debut.CalculDistance(fin);
-		this.calcAire();
-		this.calcPerimetre();
+		this.setAire(this.calcAire());
+		this.setPerimetre(calcPerimetre());
 		this.transformation= " ";
 	}
 	
@@ -31,7 +33,6 @@ public class Ligne extends Forme{
 	 * @return 0 
 	 */
 	public double calcAire() {
-		this.setAire(0);
 		return 0;
 	}
 	/**
@@ -39,7 +40,6 @@ public class Ligne extends Forme{
 	 * @return longueur
 	 */
 	public double calcPerimetre() {
-		this.setPerimetre(longueur);
 		return this.longueur;
 	}
 	
@@ -128,9 +128,12 @@ public class Ligne extends Forme{
 	 */
 	public String toString() {
 		String s = "";
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		s+= "Je suis une ligne { Départ : " + this.debut + 
 				", Fin : " + this.fin + 
 				", Longueur : " + this.longueur;
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
 		if (!this.transformation.equals(" ")) {
 			s+= this.transformation;			
 		}
