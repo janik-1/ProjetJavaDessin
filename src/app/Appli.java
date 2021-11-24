@@ -13,8 +13,11 @@ public class Appli {
 		//Création d'un dessin
 		Dessin des = new Dessin();
 		Dessin des2 = new Dessin();
+		Dessin des2copie = new Dessin();
+		
 		//Création d'une image
 		Image img = new Image();
+		Image img2 = new Image();
 		Image im = new Image();
 		Image im2 = new Image();
 		
@@ -45,12 +48,14 @@ public class Appli {
 		// Prepare Images
 		im.addForme(ce);
 		im.addForme(li);
+		im.addForme(li);
 		ce2.homothétie(0.5, new Position(5, 4));		
 		im2.addForme(ce1);
 		im2.addForme(ce2);
 		
 		// Prepare Dessin
 		des.addImage(im2);
+		des.addImage(im);
 		des.addImage(im);
 		des.triImage();
 		
@@ -60,9 +65,17 @@ public class Appli {
 		img.triForme();
 		des2.addImage(img);
 		
+		//Copie d'image 
+		img2.copieImage(im);
+		
+		//Copie de dessin 
+		des2copie.copieDessin(des2);
+		des2copie.addImage(img2);
+		
 		//Prepare Fresque et affichage
 		fre.addDessin(des);
 		fre.addDessin(des2);
+		fre.addDessin(des2copie);
 		System.out.println(fre);
 		
 		
