@@ -42,23 +42,25 @@ public class Appli {
 		Position Ellcentre = new Position(5, 6);
 		Ellipse Ellipse = new Ellipse(Ellcentre, Ell2, Ell1);
 		
+		// Prepare Images
 		im.addForme(ce);
 		im.addForme(li);
-		ce2.homothétie(0.5, new Position(5, 4));
-		
+		ce2.homothétie(0.5, new Position(5, 4));		
 		im2.addForme(ce1);
 		im2.addForme(ce2);
-		//im2.triForme();
+		
+		// Prepare Dessin
 		des.addImage(im2);
 		des.addImage(im);
 		des.triImage();
 		
+		//Preparation 2eme dessin avec une seule image
 		img.addForme(Ellipse);
 		img.addForme(Triangle);
 		img.triForme();
 		des2.addImage(img);
 		
-		//System.out.println(des);
+		//Prepare Fresque et affichage
 		fre.addDessin(des);
 		fre.addDessin(des2);
 		System.out.println(fre);
