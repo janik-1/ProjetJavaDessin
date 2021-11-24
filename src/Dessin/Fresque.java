@@ -56,11 +56,8 @@ public class Fresque {
 	 */
 	public String toString() {
 		String s= "";
-		int cpt = 1;
 		s+="Contenu de la fresque : " + System.lineSeparator();
 		for (Dessin dessin : Dessins) {
-			s+= "Dessin " + cpt + " : " + System.lineSeparator();
-			cpt++;
 			s+= dessin.toString() + System.lineSeparator();
 		}
 		return s;

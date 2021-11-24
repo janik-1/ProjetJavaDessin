@@ -31,18 +31,18 @@ class TestFresque {
 		fre.addDessin(des);
 		fre.addDessin(descopie);
 		assertEquals("Contenu de la fresque : \r\n" + 
-				"Dessin 1 : \r\n" + 
-				"Image 1 : \r\n" + 
+				"Dessin : {  Périmetre :41.42, Aire :78.54,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"Dessin 2 : \r\n" + 
-				"Image 1 : \r\n" + 
+				"}\r\n" + 
+				"}\r\n" + 
+				"Dessin : {  Périmetre :41.42, Aire :78.54,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"\r\n" + 
+				"}\r\n" + 
+				"}\r\n" + 
 				"", fre.toString());
 	}
 

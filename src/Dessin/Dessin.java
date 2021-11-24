@@ -1,5 +1,6 @@
 package Dessin;
 
+import java.text.DecimalFormat;
 /**
  * Une classe qui représente un dessin.
  * @author Fardeen POOREEA et Janik JIANG
@@ -10,15 +11,18 @@ import java.util.TreeSet;
 
 import Formes.*;
 
-public class Dessin {
+public class Dessin implements Manipulable{
 	private LinkedHashSet<Image> Images;
-	private int aire;
+	private double aire;
+	private double perimetre;
 	
 	/**
 	 * Initialise un dessin vide
 	 */
 	public Dessin() {
 		this.Images = new LinkedHashSet<Image>();
+		aire=0;
+		perimetre=0;
 	}
 	
 	/**
@@ -35,6 +39,8 @@ public class Dessin {
 	 */
 	public void addImage(Image image) {
 		this.Images.add(image);
+		this.calcAire();
+		this.calcPerimetre();
 	}
 	
 	/**
@@ -72,14 +78,85 @@ public class Dessin {
 	 * @return string  
 	 */
 	public String toString() {
-		String s= "";
-		int cpt = 1;
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
+		String s= "Dessin : { ";
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
+		s+= System.lineSeparator(); 
 		for (Image image : Images) {
-			s+= "Image " + cpt + " : " + System.lineSeparator();
-			cpt++;
 			s+= image.toString() + System.lineSeparator();
 		}
+		s+= "}";
 		return s;
+	}
+	
+	/*
+	 * Calcule l'aire et le set
+	 */
+	public double calcAire() {
+		double aire =0;
+		for (Image image : Images) {
+			aire+=image.getAire();
+		}
+		this.aire = aire;
+		return aire;
+	}
+	
+	/*
+	 * Calcule le perimetre et le set
+	 */
+	public double calcPerimetre() {
+		double perim =0;
+		for (Image image : Images) {
+			perim+=image.getPerimetre();
+		}
+		this.perimetre = perim;
+		return perim;
+	}
+	
+	/*
+	 * Effectue une homothétie sur le dessin
+	 */
+	public void homothétie(double rapport, Position centreH) {
+		for (Image image : Images) {
+			image.homothétie(rapport, centreH);
+		}
+	}
+
+	/*
+	 * Effectue une translation sur le dessin
+	 */
+	public void translation(double vecteurx, double vecteury) {
+		for (Image image : Images) {
+			image.translation(vecteurx, vecteury);
+		}
+	}
+
+	/*
+	 * Effectue une rotation sur le dessin
+	 */
+	public void rotation(Position centreR, double degre) {
+		for (Image image : Images) {
+			image.rotation(centreR, degre);
+		}
+	}
+
+	/*
+	 * Effectue une symetrie centrale sur le dessin
+	 */
+	public void symetriecentrale(Position centreSym) {
+		for (Image image : Images) {
+			image.symetriecentrale(centreSym);
+		}
+	}
+
+	/*
+	 * Effectue une symetrie axiale sur le dessin
+	 */
+	public void symetrieaxiale(Ligne axe) {
+		for (Image image : Images) {
+			image.symetrieaxiale(axe);
+		}
 	}
 	
 }

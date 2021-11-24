@@ -1,5 +1,6 @@
 package Dessin;
 
+import java.text.DecimalFormat;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
@@ -11,16 +12,18 @@ import Formes.*;
  *
  */
 
-public class Image implements Comparable<Image>, Cloneable{
+public class Image implements Comparable<Image>, Cloneable, Manipulable{
 	private LinkedHashSet<Forme> Formes;
-	private int aire;
-	private int perimetre;
+	private double aire;
+	private double perimetre;
 	
 	/**
 	 * Initialise une image vide
 	 */
 	public Image() {
 		this.Formes = new LinkedHashSet<Forme>();
+		aire=0;
+		perimetre=0;
 	}
 	
 	/**
@@ -30,6 +33,7 @@ public class Image implements Comparable<Image>, Cloneable{
 	public void addForme(Forme forme) {
 		this.Formes.add(forme);
 		this.calcAire();
+		this.calcPerimetre();
 	}
 	
 	/**
@@ -41,12 +45,15 @@ public class Image implements Comparable<Image>, Cloneable{
 	 * 
 	 */
 	public int compareTo(Image im) {
-		if(this.aire>im.aire)
+		if(this.aire>im.aire) {
 			return 1;
-		else if (this.aire==im.aire)
+		}
+		else if (this.aire==im.aire) {
 			return 0;
-		else
+		}
+		else {
 			return -1;
+		}
 	}
 	
 	
@@ -74,10 +81,13 @@ public class Image implements Comparable<Image>, Cloneable{
 	/**
 	 * Permet de calculer l'aire d'une image
 	 */	
-	public void calcAire() {
+	public double calcAire() {
+		double dummy = 0;
 		for (Forme forme : Formes) {
-			this.aire+=forme.getAire();
+			dummy+=forme.getAire();
 		}
+		this.aire=dummy;
+		return dummy;
 	}
 	
 	/*
@@ -100,11 +110,82 @@ public class Image implements Comparable<Image>, Cloneable{
 	 * @return s 
 	 */
 	public String toString() {
-		String s = "";
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
+		String s = "Image {";
+		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
+		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
+		s+= System.lineSeparator(); 
 		for (Forme Forme : Formes) {
 			s+=Forme.toString();
 			s+= System.lineSeparator();
 		}
+		s+="}";
 		return s;
+	}
+
+	/*
+	 * calcul le perimetre et le set
+	 */
+	public double calcPerimetre() {
+		double dummy=0;
+		for (Forme forme : Formes) {
+			dummy+=forme.getPerimetre();
+		}
+		this.perimetre=dummy;
+		return dummy;
+	}
+
+	
+	/*
+	 * Effectue une homothétie sur l'image
+	 */
+	public void homothétie(double rapport, Position centreH) {
+		for (Forme forme : Formes) {
+			forme.homothétie(rapport, centreH);
+		}
+	}
+
+	/*
+	 * Effectue une translation sur l'image
+	 */
+	public void translation(double vecteurx, double vecteury) {
+		for (Forme forme : Formes) {
+			forme.translation(vecteurx, vecteury);
+		}
+	}
+
+	/*
+	 * Effectue une rotation sur l'image
+	 */
+	public void rotation(Position centreR, double degre) {
+		for (Forme forme : Formes) {
+			forme.rotation(centreR, degre);
+		}
+	}
+
+	/*
+	 * Effectue une symetrie centrale sur l'image
+	 */
+	public void symetriecentrale(Position centreSym) {
+		for (Forme forme : Formes) {
+			forme.symetriecentrale(centreSym);
+		}
+	}
+
+	/*
+	 * Effectue une symetrie axiale sur l'image
+	 */
+	public void symetrieaxiale(Ligne axe) {
+		for (Forme forme : Formes) {
+			forme.symetrieaxiale(axe);
+		}
+	}
+	
+	public double getAire(){
+		return this.aire;
+	}
+	
+	public double getPerimetre() {
+		return this.perimetre;
 	}
 }

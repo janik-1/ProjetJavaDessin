@@ -24,11 +24,12 @@ class TestDessin extends TestCase{
 		im.addForme(li);
 		im.addForme(ce);
 		des.addImage(im);
-		assertEquals("Image 1 : \r\n" + 
+		assertEquals("Dessin : {  Périmetre :41.42, Aire :78.54,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"", des.toString());
+				"}\r\n" + 
+				"}", des.toString());
 	}
 	
 	@Test
@@ -45,15 +46,16 @@ class TestDessin extends TestCase{
 		im2.addForme(li);
 		des.addImage(im2);
 		des.addImage(im);
-		assertEquals("Image 1 : \r\n" + 
+		assertEquals("Dessin : {  Périmetre :89.12, Aire :191.64,\r\n" + 
+				"Image { Périmetre :47.70, Aire :113.10,\r\n" + 
 				"Je suis un cercle { Centre : (5.0,5.0), Périmetre :37.70, Aire :113.10, }\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
-				"\r\n" + 
-				"Image 2 : \r\n" + 
+				"}\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"", des.toString());
+				"}\r\n" + 
+				"}", des.toString());
 	}
 	
 	@Test
@@ -67,11 +69,12 @@ class TestDessin extends TestCase{
 		im.addForme(ce);
 		des.addImage(im);
 		copie.copieDessin(des);
-		assertEquals("Image 1 : \r\n" + 
+		assertEquals("Dessin : {  Périmetre :41.42, Aire :78.54,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"", des.toString());
+				"}\r\n" + 
+				"}", des.toString());
 	}
 	
 	@Test
@@ -89,15 +92,16 @@ class TestDessin extends TestCase{
 		des.addImage(im2);
 		des.addImage(im);
 		des.triImage();
-		assertEquals("Image 1 : \r\n" + 
+		assertEquals("Dessin : {  Périmetre :89.12, Aire :191.64,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"Image 2 : \r\n" + 
+				"}\r\n" + 
+				"Image { Périmetre :47.70, Aire :113.10,\r\n" + 
 				"Je suis un cercle { Centre : (5.0,5.0), Périmetre :37.70, Aire :113.10, }\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
-				"\r\n" + 
-				"" , des.toString());
+				"}\r\n" + 
+				"}" , des.toString());
 	}
 	
 	@Test
@@ -110,11 +114,12 @@ class TestDessin extends TestCase{
 		im.addForme(ce);
 		des.addImage(im);
 		des.addImage(im);
-		assertEquals("Image 1 : \r\n" + 
+		assertEquals("Dessin : {  Périmetre :41.42, Aire :78.54,\r\n" + 
+				"Image { Périmetre :41.42, Aire :78.54,\r\n" + 
 				"Je suis une ligne { Départ : (7.0,2.0), Fin : (6.0,5.0), Longueur : 10.0 Périmetre :10.00, Aire :.00, }\r\n" + 
 				"Je suis un cercle { Centre : (1.0,2.0), Périmetre :31.42, Aire :78.54, }\r\n" + 
-				"\r\n" + 
-				"", des.toString());
+				"}\r\n" + 
+				"}", des.toString());
 	}
 	
 }

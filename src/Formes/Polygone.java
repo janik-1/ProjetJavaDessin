@@ -143,7 +143,7 @@ public class Polygone extends Forme {
 	 */
 	public String toString() {
 		DecimalFormat numberFormat = new DecimalFormat("#.00");
-		String s= "Je suis un Polygone {"
+		String s= "Je suis un polygone {"
 				+ "Nombre sommet : " + this.nbsommet;
 		s+= " Périmetre :" + numberFormat.format(this.calcPerimetre()) + ",";
 		s+= " Aire :" +  numberFormat.format(this.calcAire()) + ",";
